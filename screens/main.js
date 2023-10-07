@@ -13,8 +13,8 @@ const Main_Screen = ({ navigation }) => {
   const [fireData, setFireData] = useState([]);
 
   const [mapRegion, setMapRegion] = useState({
-    latitude: 52.0, // Środek Polski
-    longitude: 19.0, // Środek Polski
+    latitude: 50.031131739999985, // Środek Polski
+    longitude: 22.00143431999999, // Środek Polski
     latitudeDelta: 6.0, // Dla przybliżenia, dostosuj według swoich potrzeb
     longitudeDelta: 6.0, // Dla przybliżenia, dostosuj według swoich potrzeb
   });
@@ -23,8 +23,28 @@ const Main_Screen = ({ navigation }) => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
-        setErrorMsg('Permission to access location was denied');
-        return;
+        Alert.alert(
+          'Błąd krytyczny',
+          'Wystąpił krytyczny błąd. Aplikacja zostanie zamknięta.',
+          [
+            {
+              text: 'OK',
+              onPress: () => {
+                // Zamknij aplikację (działa tylko w trybie deweloperskim)
+                if (__DEV__) {
+                  console.log('Zamykanie aplikacji z powodu błędu krytycznego.');
+                  // To jest dostępne tylko w trybie deweloperskim.
+                  // W produkcji nie powinieneś zamykać aplikacji w ten sposób.
+                  // W produkcyjnych aplikacjach nie masz kontroli nad zamknięciem.
+                  // Użytkownik może zawsze zamknąć aplikację ręcznie.
+                  // Dla testów i debugowania można to użyć.
+                  // W rzeczywistej aplikacji zwykle wyświetlasz tylko komunikat i zachowujesz stabilność.
+                  globalThis.process.exit(1);
+                }
+              },
+            },
+          ]
+        );
       }
 
       let locationData = await Location.getCurrentPositionAsync({});
@@ -82,12 +102,12 @@ const Main_Screen = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{backgroundColor: 'white'}}>
       <View style={{ justifyContent: "flex-start", alignItems: "center", width: "100%", height: "100%" }}>
         <Headercom />
         <View style={styles.informacje}>
           <View style={styles.animalsSection}>
-            <Text style={styles.thirdText}>{"ABC Postępowania podczas pożaru"}</Text>
+            <Text style={styles.thirdText}>{"ABC Ratowania życia i zdrowia"}</Text>
           </View>
           <ScrollView  horizontal={true} showsHorizontalScrollIndicator={false}>
             <View style={styles.cardsHolder}>
@@ -118,20 +138,22 @@ const Main_Screen = ({ navigation }) => {
                   />
                 </Marker>
               ))}
-                {data.map((item, index) => (
-                <Marker
-                  key={index}
-                  coordinate={{
-                    latitude: item.latitude,
-                    longitude: item.longitude,
-                  }}
-                >
-                  {/* Użyj obrazka jako znacznika */}
-                  <Image
-                    source={{ uri: 'https://i.imgur.com/oXo43tf.png' }}
-                    style={{ width: 40, height: 40 }}
-                  />
-                </Marker>
+              {data.map((item, index) => (
+                item.bool === 1 ? ( // Sprawdź, czy bool jest równy 1
+                  <Marker
+                    key={index}
+                    coordinate={{
+                      latitude: item.latitude,
+                      longitude: item.longitude,
+                    }}
+                  >
+                    {/* Użyj obrazka jako znacznika */}
+                    <Image
+                      source={{ uri: 'https://i.imgur.com/oXo43tf.png' }}
+                      style={{ width: 40, height: 40 }}
+                    />
+                  </Marker>
+                ) : null // Jeśli bool nie jest równy 1, nie wyświetlaj markera
               ))}
             </MapView>
           </TouchableOpacity>
@@ -159,7 +181,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   thirdText: {
-    fontSize: 20,
+    fontSize: 23,
     fontWeight: '800',
     marginBottom: 10,
   },

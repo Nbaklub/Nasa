@@ -5,7 +5,8 @@ import { Ionicons } from 'react-native-vector-icons';
 import { getDatabase, ref, set } from "firebase/database";
 import * as Location from "expo-location";
 import { initializeApp } from 'firebase/app';
-
+import { data } from '../assets/mark';
+import { useState } from 'react';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCGds_FhWfg3Llpny02mVZ2GduNMZ2DbF0",
@@ -28,16 +29,6 @@ const Report_Screen = ({ navigation }) => {
   const [czyOsobaZagrozona, setCzyOsobaZagrozona] = React.useState("");
   const [latitude, setLatitude] = React.useState("");
   const [longitude, setLongitude] = React.useState("");
-  const openCamera = async () => {
-    const { status } = await Camera.requestPermissionsAsync();
-  
-    if (status === 'granted') {
-      setIsCameraOpen(true);
-    } else {
-      alert('Aby korzystać z aparatu, musisz udzielić uprawnień dostępu.');
-    }
-  };
-  
 
   React.useEffect(() => {
     (async () => {
@@ -54,8 +45,9 @@ const Report_Screen = ({ navigation }) => {
   }, []);
 
   const handleZglosClick = () => {
-    const zgloszenieRef = ref(database, "zgloszenia");
-    const zgloszenie = {
+      data[0].bool = 1;
+      const zgloszenieRef = ref(database, "zgloszenia");
+      const zgloszenie = {
       coSiePali,
       czyOsobaRanna,
       czyOsobaZagrozona,

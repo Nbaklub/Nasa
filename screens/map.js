@@ -4,7 +4,7 @@ import Headercom from "../components/header";
 import MapView, { Marker } from "react-native-maps";
 import * as Location from 'expo-location';
 import { Ionicons } from "react-native-vector-icons"
-
+import { data } from '../assets/mark';
 const Map_Screen = ({ navigation }) => {
     const [location, setLocation] = useState(null);
     const [errorMsg, setErrorMsg] = useState(null);
@@ -98,6 +98,23 @@ const Map_Screen = ({ navigation }) => {
                     />
                 </Marker>
             ))}
+            {data.map((item, index) => (
+                item.bool === 1 ? ( // Sprawdź, czy bool jest równy 1
+                  <Marker
+                    key={index}
+                    coordinate={{
+                      latitude: item.latitude,
+                      longitude: item.longitude,
+                    }}
+                  >
+                    {/* Użyj obrazka jako znacznika */}
+                    <Image
+                      source={{ uri: 'https://i.imgur.com/oXo43tf.png' }}
+                      style={{ width: 40, height: 40 }}
+                    />
+                  </Marker>
+                ) : null // Jeśli bool nie jest równy 1, nie wyświetlaj markera
+              ))}
         </MapView>
         </View>  
     );

@@ -1,17 +1,20 @@
 import React from 'react';
 import { View, Image, Text, StyleSheet,TouchableOpacity } from 'react-native';
 import { dogs } from '../assets/dogs';
-import { NavigationContainer } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 const styles = StyleSheet.create({
     fullHolder: {
         width: 190,
-        marginRight: 20
+        marginRight: 20, 
+        backgroundColor: 'lightgray',
+        borderRadius: 15
     },
   imageHolder: {
     width: 190,
     height: 115,
     overflow: 'hidden', 
-    borderRadius: 15
+    borderTopLeftRadius:15,
+    borderTopRightRadius: 15 
   },
   image: {
     flex: 1,
@@ -39,16 +42,17 @@ const styles = StyleSheet.create({
     color: '#1f1f1f'
   },
   bottomSection: {
-    backgroundColor: 'white',
+    height: 70,
     paddingBottom: 10,
     borderRadius: 15,
     elevation: 2
   }
 });
 
-export const AnimalBox = ({ item, navigation}) => {
+export const AnimalBox = ({ item }) => {
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity onPress={() => { navigation.navigate("dogview") }}>
+    <TouchableOpacity onPress={() => navigation.navigate(item.nav)}>
         <View style={styles.fullHolder}>
           <View style={styles.imageHolder}>
             <Image source={{ uri: item.url }} style={styles.image} resizeMode="cover" />

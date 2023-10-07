@@ -6,7 +6,9 @@ import Main_Screen from './screens/main';
 import Map_Screen from './screens/map';
 import Report_Screen from './screens/zgłaszanie';
 import { initializeApp } from 'firebase/app';
-
+import Deu_Screen from './screens/def';
+import Call_Screen from './screens/call';
+import First_Screen from './screens/first';
 const Stack = createNativeStackNavigator();
 
 const firebaseConfig = {
@@ -30,6 +32,9 @@ export default function App() {
         <Stack.Screen name="Main" component={Main_Screen}/>
         <Stack.Screen name="Map" component={Map_Screen}/>
         <Stack.Screen name="Report" component={Report_Screen}/>
+        <Stack.Screen name="Call" component={Call_Screen}/>
+        <Stack.Screen name="Deu" component={Deu_Screen}/>
+        <Stack.Screen name="First" component={First_Screen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
