@@ -36,7 +36,7 @@ const Map_Screen = ({ navigation }) => {
       const fetchData = async () => {
         try {
           const response = await fetch(
-            'https://firms.modaps.eosdis.nasa.gov/api/country/csv/a94e46e34cbf3b1ab356b36adf05d664/VIIRS_SNPP_NRT/POL/1'
+            'https://firms.modaps.eosdis.nasa.gov//api/country/csv/d3a87f084e45048141a3518e510dc7c6/VIIRS_SNPP_NRT/POL/2/2023-10-06'
           );
           const textData = await response.text(); // Otrzymaj tekst odpowiedzi CSV
           const rows = textData.split('\n'); // Podziel tekst na wiersze
@@ -80,10 +80,13 @@ const Map_Screen = ({ navigation }) => {
   
     return (
         <View style={{flex: 1}}>
+        <TouchableOpacity style={{marginLeft: '5%', marginTop: '185%',width: '90%', height: 30, borderRadius: '25%', position: 'absolute', zIndex: 1, backgroundColor: '#FFC400', justifyContent: 'center', alignItems: 'center'}} onPress={() => {navigation.navigate('Report');}}>
+          <Text style={{fontWeight: 'bold', fontSize: 40}}>Zgłoś Zagrożenie!</Text>
+        </TouchableOpacity>
         <TouchableOpacity style={{position: 'absolute', zIndex: 1, marginTop: 40,  marginLeft: 20}} onPress={() => {navigation.navigate('Main');}}>
             <Ionicons name="arrow-back" size={50} color="black"/>
         </TouchableOpacity>
-        <MapView style={styles.map} key={JSON.stringify(initialRegion)} initialRegion={initialRegion} showsUserLocation={true}>
+        <MapView style={styles.map} key={JSON.stringify(initialRegion)} initialRegion={initialRegion} showsUserLocation={false}>
             {fireData.map((fire, index) => (
                 <Marker
                     key={index}

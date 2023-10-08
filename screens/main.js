@@ -58,7 +58,7 @@ const Main_Screen = ({ navigation }) => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          'https://firms.modaps.eosdis.nasa.gov/api/country/csv/a94e46e34cbf3b1ab356b36adf05d664/VIIRS_SNPP_NRT/POL/1'
+          'https://firms.modaps.eosdis.nasa.gov//api/country/csv/d3a87f084e45048141a3518e510dc7c6/VIIRS_SNPP_NRT/POL/2/2023-10-06'
         );
         const textData = await response.text(); // Otrzymaj tekst odpowiedzi CSV
         const rows = textData.split('\n'); // Podziel tekst na wiersze
@@ -150,14 +150,13 @@ const Main_Screen = ({ navigation }) => {
                     {/* Użyj obrazka jako znacznika */}
                     <Image
                       source={{ uri: 'https://i.imgur.com/oXo43tf.png' }}
-                      style={{ width: 40, height: 40 }}
+                      style={{ width: 40, height: 40, zIndex: 1 }}
                     />
                   </Marker>
                 ) : null // Jeśli bool nie jest równy 1, nie wyświetlaj markera
               ))}
             </MapView>
           </TouchableOpacity>
-
       </View>
     </SafeAreaView>
   );

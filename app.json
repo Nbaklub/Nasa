@@ -18,17 +18,27 @@
       "supportsTablet": true,
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "We need your location for XYZ"
-      }
+      },
+      "bundleIdentifier": "com.nbaklub.nasaspaceapps"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff",
-        "permissions": ["ACCESS_FINE_LOCATION", "ACCESS_COARSE_LOCATION"]
-      }
+        "permissions": [
+          "ACCESS_FINE_LOCATION",
+          "ACCESS_COARSE_LOCATION"
+        ]
+      },
+      "package": "com.nbaklub.nasaspaceapps"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b31c3414-df64-49af-a59e-90354488bc74"
+      }
     }
   }
 }

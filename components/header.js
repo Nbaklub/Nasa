@@ -10,17 +10,23 @@ const Headercom = ({ navigator }) => {
     // Przykład nawigacji do innej ścieżki za pomocą navigation.navigate
     navigation.navigate('Call');
   };
+  const handleMenu= () => {
+    // Przykład nawigacji do innej ścieżki za pomocą navigation.navigate
+    navigation.navigate('Menu');
+  };
   return (
     <View style={styles.main}>
-      <TouchableOpacity onPress={() => {setToggleMenu(!toggleMenu)}}>
+      <TouchableOpacity style={{position: 'absolute', zIndex: 5}} onPress={handleMenu}>
         <Entypo name="menu" size={50} color="black" />
       </TouchableOpacity>
       <View style={{ width: '100%', height: '100%', position: 'absolute', justifyContent: 'center', alignItems: 'center', zIndex: 1 }}>
         <Image style={{ width: 60, height: 60 }} source={{ uri: 'https://i.imgur.com/oXo43tf.png' }} />
       </View>
-      <TouchableOpacity style={{ width: '100%', height: '100%', position: 'absolute', justifyContent: 'center', alignItems: 'flex-end', zIndex: 2, paddingRight: 10 }} onPress={handleNavigate}>
-        <Feather name="phone-call" size={35} color="black" />
-      </TouchableOpacity>
+      <View style={{ width: '100%', height: '100%', position: 'absolute', justifyContent: 'center', alignItems: 'flex-end', zIndex: 2, paddingRight: 10 }} >
+        <TouchableOpacity onPress={handleNavigate}>
+          <Feather name="phone-call" size={35} color="black" />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }

@@ -9,6 +9,9 @@ import { initializeApp } from 'firebase/app';
 import Deu_Screen from './screens/def';
 import Call_Screen from './screens/call';
 import First_Screen from './screens/first';
+import Menu_Screen from './screens/menu';
+import Login_Screen from './login/login_screen'
+import Steps_Screen from './screens/poradnik';
 const Stack = createNativeStackNavigator();
 
 const firebaseConfig = {
@@ -35,6 +38,9 @@ export default function App() {
         <Stack.Screen name="Call" component={Call_Screen}/>
         <Stack.Screen name="Deu" component={Deu_Screen}/>
         <Stack.Screen name="First" component={First_Screen}/>
+        <Stack.Screen name="Menu" component={Menu_Screen}/>
+        <Stack.Screen name="Login" component={Login_Screen}/>
+        <Stack.Screen name="Steps" component={Steps_Screen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

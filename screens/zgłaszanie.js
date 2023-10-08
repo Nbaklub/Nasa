@@ -71,13 +71,10 @@ const Report_Screen = ({ navigation }) => {
         <Ionicons name="arrow-back" size={40} color="black" />
       </TouchableOpacity>
       <View>
-        <TouchableOpacity onPress={() => {navigation.navigate('Menu');}}>
-          <Ionicons name="arrow-back" size={40} color="white" />
-        </TouchableOpacity>
         <View style={styles.miniLogo}>
           <Image source={{ uri: 'https://i.imgur.com/oXo43tf.png' }} />
         </View>
-        <View style={{ width: '100%', justifyContent: 'center', alignItems: 'center' }}>
+        <View style={{ width: '100%', justifyContent: 'center', alignItems: 'center', marginTop: 100 }}>
           <Text style={styles.title}>{"Zgłoś Pożar"}</Text>
         </View>
         <TextInput
@@ -131,6 +128,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#eba059',
     marginRight: 30,
     marginLeft: 30,
+    marginTop: 10
   },
   send: {
     alignItems: 'center',
@@ -139,7 +137,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fa0000',
     width: '80%',
     height: 45,
-    borderRadius: 10,
+    borderRadius: 15,
     elevation: 5,
   },
   sendText: {
