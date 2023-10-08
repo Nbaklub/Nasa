@@ -1,6 +1,6 @@
 # Nasa
 
-!(https://i.imgur.com/oXo43tf.png)
+https://i.imgur.com/oXo43tf.png
 
 ## Opis projektu
 
