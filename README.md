@@ -25,8 +25,8 @@ W menu znajduje się poradnik jak zgłocić zagrożenie
 
 ## Zrzuty ekranu
 
-- [Ekran Główny]([https://i.imgur.com/Jacu7Zc.png](https://i.imgur.com/5aqApwn.png))
-- [Zasady postępowania podczas zagrożenia]([(https://i.imgur.com/SmiOHyr.png)](https://i.imgur.com/IFxZIFd.png))
+- [Ekran Główny](https://i.imgur.com/5aqApwn.png)
+- [Zasady postępowania podczas zagrożenia](https://i.imgur.com/IFxZIFd.png)
 - [Numery Alarmowe]([(https://i.imgur.com/KjivyHi.png)](https://i.imgur.com/gHGJ5Ff.png))
 - [Mapa Pożarów]([(https://i.imgur.com/YimQZ7q.png)](https://i.imgur.com/iMxRQ8d.png))
 - [Zgłaszanie Zagrożenia]([(https://i.imgur.com/YimQZ7q.png)](https://i.imgur.com/YMZYOtZ.png))
