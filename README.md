@@ -4,10 +4,6 @@
 
 Przez 24 godziny udało nam się stworzyć MVP aplikacji Firms, która ma za zadanie ułatwić zarządzanie pożarami na świecie
 
-### Logowanie
-
-Aplikacja ma możliwość zalogowania się do aplikacji
-
 ### Główny Ekran
 
 - **Lokalizacja użytkownika:** Pozwala użytkownikowi zlokalizować swoją pozycję.
@@ -18,6 +14,10 @@ Aplikacja ma możliwość zalogowania się do aplikacji
 ### Mapa
 
 Po kliknięciu w mapę, zostaje ona powiększona na cały ekran. Użytkownik może także uzyskać dokładną lokalizacje pożaru
+
+### Logowanie
+
+Aplikacja ma możliwość zalogowania się do aplikacji
 
 ### Poradnik zgłaszania
 
