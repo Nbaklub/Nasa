@@ -1,6 +1,6 @@
 # Nasa
 
-![Logo GWIZD]([link_do_logo.png]([https://i.imgur.com/1yskRmX.png](https://i.imgur.com/oXo43tf.png)))
+!(https://i.imgur.com/oXo43tf.png)
 
 ## Opis projektu
 
